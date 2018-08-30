@@ -38,10 +38,10 @@ vueConnectSearch.install = function(Vue) {
           const newParams = newRoute.params
           const oldParams = oldRoute.params
 
-          // 更新search 字端值
+          // update $search
           this.$search = generateSearch(schema, newRoute, this)
 
-          // // 根据新的路由 更新query绑定模型
+          // detect query && trigger onQueryChange
           if (isEqual(newParams, oldParams)) {
             onQueryChange && onQueryChange.call(this)
           } else {
