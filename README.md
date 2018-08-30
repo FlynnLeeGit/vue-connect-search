@@ -29,8 +29,12 @@ export default {
       a: {type: Number,default: 0},
       b: {type: String,default: ''}
     },
-    // will called when query changed
+    // will called when query changed (notice when params change,this will NOT trigger)
     onQueryChange(){
+
+    },
+    // will trigger when params change
+    onParamsChange(){
 
     }
   }

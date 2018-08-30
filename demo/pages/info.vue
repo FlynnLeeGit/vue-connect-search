@@ -26,6 +26,9 @@
                 <router-link :to="{query:{unknown:'8'}}">should no default correct</router-link>
             </li>
             <li>
+                <button @click="randGo">should trigger paramsChange</button>
+            </li>
+            <li>
                 <a href="/info?name=angel&version=3&extra=6">should a link ok</a>
             </li>
             <li>
@@ -54,12 +57,23 @@ export default {
     },
     onQueryChange() {
       console.log('query change', JSON.parse(JSON.stringify(this.$search)))
+    },
+    onParamsChange() {
+      console.log('paramsChange',this.$route.params)
     }
   },
-  methods:{
-      goto(url){
-        this.$router.push(url)
-      }
+  methods: {
+    goto(url) {
+      this.$router.push(url)
+    },
+    randGo() {
+      const id = Math.random().toString(16).slice(2)
+      this.$router.push({
+        params: {
+          id
+        }
+      })
+    }
   }
 }
 </script>

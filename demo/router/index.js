@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/info',
+    path: '/info/:id?',
     component: Info
   }
 ]
