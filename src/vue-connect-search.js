@@ -1,5 +1,5 @@
-import { isEqual } from "./util";
-import { generateSearch } from "./generate-search";
+import { isEqual } from './util'
+import { generateSearch } from './generate-search'
 
 /**
  * vue-connect-search
@@ -35,17 +35,20 @@ vueConnectSearch.install = function(Vue) {
             schema
           } = this.$options.connectSearch
 
-          const newParams = newRoute.params
-          const oldParams = oldRoute.params
+          // only trigger when it is on same page
+          if (newRoute.path === oldRoute.path) {
+            const newParams = newRoute.params
+            const oldParams = oldRoute.params
 
-          // update $search
-          this.$search = generateSearch(schema, newRoute, this)
+            // update $search
+            this.$search = generateSearch(schema, newRoute, this)
 
-          // detect query && trigger onQueryChange
-          if (isEqual(newParams, oldParams)) {
-            onQueryChange && onQueryChange.call(this)
-          } else {
-            onParamsChange && onParamsChange.call(this)
+            // detect query && trigger onQueryChange
+            if (isEqual(newParams, oldParams)) {
+              onQueryChange && onQueryChange.call(this)
+            } else {
+              onParamsChange && onParamsChange.call(this)
+            }
           }
         }
       }
