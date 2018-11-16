@@ -1,7 +1,7 @@
 {
   "name": "vue-connect-search",
   "description": "simple route search sync manager",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": false,
   "main": "dist/vue-connect-search.js",
   "files": [
